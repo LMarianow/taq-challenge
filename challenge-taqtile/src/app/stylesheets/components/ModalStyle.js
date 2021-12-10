@@ -1,52 +1,67 @@
 import styled from 'styled-components';
+import { MdClose } from 'react-icons/md';
 
-export const ModalStyle = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+export const Background = styled.div`
   height: 100vh;
   width: 100vw;
-  background-color: rgba(0, 0, 0, .4);
+  background: rgba(0, 0, 0, 0.8);
   position: fixed;
   top: 0;
   left: 0;
-  opacity: 0;
-  pointer-events: none;
-  transition: .5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: 1;
 `;
 
-export const ActiveModal = styled(ModalStyle)`
-  opacity: 1;
-  pointer-events: all;
+export const ModalWrapper = styled.div`
+  width: 800px;
+  height: 500px;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  color: #000;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  z-index: 10;
+  border-radius: 10px;
 `;
 
-export const ModalContentStyle = styled.div`
-  height: 50vh;
-  width: 50vw;
-  padding: 20px;
-
-  border-radius: 12px;
-  background-color: white;
-
-  transform: scale(.5);
-  transition: all .4s linear;
-`;
-export const ContentActive = styled(ModalContentStyle)`
-  transform: scale(1);
+export const ModalImg = styled.img`
+  width: 100%;
+  height: 500px;
+  border-radius: 10px 0 0 10px;
+  background: #000;
 `;
 
-export const ModalClose = styled.div`
-  display: block;
-  margin-left: auto;
-  padding: 0;
-  background: none;
-  border: none;
+export const ModalContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #141414;
+  overflow: hidden;
+  h1{
+    margin-right: 1em; 
+  }
+`;
+
+export const EpisodesContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  color: #141414;
+  overflow-y: auto;
+`;
+
+export const CloseModalButton = styled(MdClose)`
   cursor: pointer;
-  opacity: .5;
-
-  position: sticky;
-  top: 0rem;
-
-  transition: transform .4s linear, opacity .4s linear;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  z-index: 10;
 `;
