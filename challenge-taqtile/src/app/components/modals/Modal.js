@@ -9,7 +9,7 @@ import { Background, ModalWrapper, ModalImg, ModalContent, CloseModalButton, Epi
 import CHARACTER_EPISODES from '../../querys/query-episodes';
 import { useQuery } from "@apollo/client";
 import Preloader from '../PreLoader';
-
+import { toast } from 'react-toastify';
 
 export const Modal = ({ showModal, setShowModal, idCharacter }) => {
 
@@ -61,9 +61,8 @@ export const Modal = ({ showModal, setShowModal, idCharacter }) => {
     return <Preloader/>
   }
   if (error) {
-    return <p>an error occurred...</p>;
+    return toast.error("Erro de conexão!!");
   }
-  console.log(data)
   
   return (
     <>
