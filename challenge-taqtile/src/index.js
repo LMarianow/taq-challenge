@@ -5,11 +5,23 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ApolloProvider } from "@apollo/client";
 import client from "../src/app/services/api"
+import { ToastContainer } from 'react-toastify';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <React.StrictMode> 
     <ApolloProvider client={client}>
-    <App />
+    <ToastContainer
+    position="top-center"
+    autoClose={5000}
+    hideProgressBar={false}
+    newestOnTop={false}
+    closeOnClick
+    rtl={false}
+    pauseOnFocusLoss
+    draggable
+    pauseOnHover
+    />
+      <App />
     </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')

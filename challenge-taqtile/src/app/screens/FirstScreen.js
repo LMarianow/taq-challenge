@@ -3,23 +3,27 @@ import { useQuery } from "@apollo/client";
 import CHARACTER_INFO from "../querys/query-character";
 import Card from "../components/Card";
 import { CardList } from '../stylesheets/components/CardListStyle';
-import toast from "react-hot-toast";
+import Preloader from "../components/PreLoader";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function FirstScreen(){
   
   const { loading, error, data } = useQuery(CHARACTER_INFO)
   if (loading) {
-    return toast.error('Ops, houve um erro. Tente novamente em alguns minutos')
+    return <Preloader/>
   }
   if (error) {
-    return <p>an error occurred...</p>;
+    return toast.error("Erro de conexão!!");
   }
  return(
-  <CardList>
-      {data.characters.results.map((character, index) => (
-      <Card key={index} character={character}/>
-    ))}
-  </CardList>
+
+    <CardList>
+        {data.characters.results.map((character, index) => (
+        <Card key={index} character={character}/>
+      ))}
+    </CardList>
+
  );
 
 }
