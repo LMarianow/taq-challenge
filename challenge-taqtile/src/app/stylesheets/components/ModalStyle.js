@@ -25,6 +25,13 @@ export const ModalWrapper = styled.div`
   position: relative;
   z-index: 10;
   border-radius: 10px;
+  @media screen and (max-width: 768px) {
+    display: grid;
+    width: 350px;
+    height: 600px;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(2, 1fr);
+  }
 `;
 
 export const ModalImg = styled.img`
@@ -32,6 +39,11 @@ export const ModalImg = styled.img`
   height: 500px;
   border-radius: 10px 0 0 10px;
   background: #000;
+  @media screen and (max-width: 768px) {
+    height: auto;
+    grid-area: 1 / 1 / 2 / 2;
+    border-radius: 10px 10px 0 0;
+  }
 `;
 
 export const ModalContent = styled.div`
@@ -43,6 +55,10 @@ export const ModalContent = styled.div`
   overflow: hidden;
   h1{
     margin-right: 1em; 
+  }
+  @media screen and (max-width: 768px) {
+    grid-area: 2 / 1 / 3 / 2;
+    overflow: hidden;
   }
 `;
 

@@ -15,6 +15,10 @@ export const GlobalStyle = createGlobalStyle`
         width: 50%;
         margin-bottom: 2em;
         margin-top: 2em;
+        @media screen and (max-width: 768px) {
+          width: 100%;
+        }
     }
+    
   }
 `;
